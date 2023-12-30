@@ -7,7 +7,7 @@
           <h2 class="h3 mb-3 font-weight-normal">회원가입</h2>
             <div class="form-grop">
               <label for="userId">유저 ID</label>
-              <input id="userId" v-model="userId" type="text" name="userId" placeholder="유저아이디를 입력하세요" class="form-control">
+              <input id="userId" type="text" name="userId" placeholder="유저아이디를 입력하세요" class="form-control">
             </div>
             <div>
               <label for="userPwd">비밀번호</label>
@@ -42,32 +42,26 @@
 </template>
 
 <script setup>
+import { creaetLog } from "~/utils/userUtil";
+
 const data = () => ({
-    userId: '',
-    userPwd: '',
-    userName: '',
-    userEmail: '',
+    userId: 'userId',
+    userPwd: 'userPwd',
+    userName: 'userName',
+    userEmail: 'userEmail',
     userAddress: '',
 });
 
 const userRegister = async () => {
-    try {
         const param = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                ...data(),
-            }),
+            body: data,
         };
-        await fetch('http://localhost:8090/basic/user/userResist', param)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data)
-            })
-    } catch (e) {
-
-    }
+      creaetLog('REGISTER USER PARAM', param);
+    const result = await fetch('http://localhost:8090/basic/user/userResist', param);
+    creaetLog('REGISTER USER RES', result);
 }
 </script>
