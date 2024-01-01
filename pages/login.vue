@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-6 mt-5 mx-auto">
                 <form action="/basic/user/userResist" method="post">
-                  <h2 class="h3 mb-3 font-weight-normal">로그인 페이지</h2>
+                  <h2 class="h3 mb-3 font-weight-normal">로그인</h2>
                   <div class="form-group">
                     <label for="userId">유저 ID</label>
                     <input id="userId" type="text" name="userId" placeholder="유저아이디를 입력하세요" class="form-control">
