@@ -1,9 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "lib": [
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
+    ],
+    "noImplicitThis": false, // 암묵적인 'this' 타입 체크를 사용하지 않음
+    "resolveJsonModule": true, // JSON 모듈 해결 활성화
+    "checkJs": false, // JavaScript 파일의 타입 체크를 비활성화
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
@@ -12,10 +19,25 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
-    },
-    "types": ["@nuxt/types", "@nuxtjs/axios", "@types/node"]
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    }, // 모듈 경로 별칭 설정
+    "typeRoots": [
+      "types"
+    ], // 타입 정의 파일의 위치 설정
+    "types": [
+      "@nuxt/types",
+      "@nuxtjs/axios",
+      "@types/node"
+    ],
   },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  "exclude": [
+    "node_modules",
+    ".nuxt",
+    "dist"
+  ]
 }
